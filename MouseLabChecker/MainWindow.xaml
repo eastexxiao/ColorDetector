@@ -1,0 +1,66 @@
+﻿<Window x:Class="ColorDetector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Color Detector" Height="600" Width="619">
+    <Grid>
+        <StackPanel>
+            <CheckBox x:Name="TopmostCheckBox" Content="在顶层显示" Margin="0,10,0,10" Checked="TopmostCheckBox_Checked" Unchecked="TopmostCheckBox_Unchecked"/>
+            <Separator />
+            <TextBlock Text="RGB:" Margin="0,10,0,0" />
+            <TextBlock x:Name="RgbTextBlock" Margin="0,0,0,10" />
+            <Separator />
+            <TextBlock Text="LAB:" Margin="0,10,0,0" />
+            <TextBlock x:Name="LabTextBlock" Margin="0,0,0,10" />
+            <Separator />
+            <TextBlock Text="HSV:" Margin="0,10,0,0" />
+            <TextBlock x:Name="HsvTextBlock" Margin="0,0,0,10" />
+            <Separator />
+            <TextBlock Text="HSL:" Margin="0,10,0,0" />
+            <TextBlock x:Name="HslTextBlock" Margin="0,0,0,10" />
+            <Separator />
+            <Border x:Name="ColorDisplayBorder" Width="100" Height="100" BorderBrush="Black" BorderThickness="1" Margin="0,10,0,0"/>
+            <Separator />
+            <Button Content="清空列表" Click="ClearListButton_Click" Margin="0,10,0,0"/>
+            <DataGrid x:Name="ColorDataGrid" AutoGenerateColumns="False" Margin="0,10,0,0" Height="200">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="RGB">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding RGB}" Foreground="{Binding ForegroundColor}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="HSV">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HSV}" Foreground="{Binding ForegroundColor}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="HSL">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding HSL}" Foreground="{Binding ForegroundColor}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="LAB">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding LAB}" Foreground="{Binding ForegroundColor}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="{Binding BackgroundColor}" />
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+
+
+
+        </StackPanel>
+    </Grid>
+</Window>
